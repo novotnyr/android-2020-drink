@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         drinkRecyclerView = findViewById(R.id.drinkRecyclerView);
-        drinkRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        drinkRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
 
         drinkListAdapter = new DrinkListAdapter();
         drinkRecyclerView.setAdapter(drinkListAdapter);
