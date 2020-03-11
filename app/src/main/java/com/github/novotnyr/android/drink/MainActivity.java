@@ -6,6 +6,9 @@ import android.view.View;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Snackbar.make(v, "Na zdravie!", Snackbar.LENGTH_LONG).show();
+
+                List<Drink> newList = new ArrayList<>(drinkListAdapter.getCurrentList());
+                newList.add(new Drink());
+                drinkListAdapter.submitList(newList);
             }
         });
     }
