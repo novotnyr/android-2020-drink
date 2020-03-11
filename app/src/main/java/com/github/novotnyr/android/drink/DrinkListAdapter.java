@@ -19,8 +19,7 @@ public class DrinkListAdapter extends ListAdapter<Drink, DrinkViewHolder> {
     @NonNull
     @Override
     public DrinkViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // TODO load layout resource
-        @LayoutRes int layoutRes = 0;
+        @LayoutRes int layoutRes = R.layout.drink;
         View layout = LayoutInflater.from(parent.getContext()).inflate(layoutRes, parent, false);
         return new DrinkViewHolder(layout);
     }

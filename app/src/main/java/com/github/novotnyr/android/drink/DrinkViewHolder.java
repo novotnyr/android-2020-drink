@@ -11,7 +11,7 @@ public class DrinkViewHolder extends RecyclerView.ViewHolder {
 
     public DrinkViewHolder(@NonNull View layout) {
         super(layout);
-        //TODO locate via: findViewById
+        drinkImageView = layout.findViewById(R.id.drinkImageView);
         drinkImageView.setImageResource(R.drawable.drink);
     }
 }
