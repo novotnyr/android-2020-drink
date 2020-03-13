@@ -47,10 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Snackbar.make(v, "Na zdravie!", Snackbar.LENGTH_LONG).show();
-
-                List<Drink> newList = new ArrayList<>(drinkListAdapter.getCurrentList());
-                newList.add(new Drink());
-                drinkListAdapter.submitList(newList);
+                drinkViewModel.addDrink();
             }
         });
     }
