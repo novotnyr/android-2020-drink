@@ -19,4 +19,10 @@ public class DrinkViewModel extends ViewModel {
         newValue.add(new Drink());
         drinks.postValue(newValue);
     }
+
+    public void removeDrink(int position) {
+        ArrayList<Drink> newValue = new ArrayList<>(drinks.getValue());
+        newValue.remove(position);
+        drinks.postValue(newValue);
+    }
 }

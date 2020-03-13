@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         ItemTouchHelper.SimpleCallback swipeCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-
+                drinkViewModel.removeDrink(viewHolder.getAdapterPosition());
             }
 
             @Override
