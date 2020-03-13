@@ -6,10 +6,11 @@ import android.view.View;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     DrinkListAdapter drinkListAdapter;
 
     FloatingActionButton fab;
+
+    DrinkViewModel drinkViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,14 @@ public class MainActivity extends AppCompatActivity {
 
         drinkListAdapter = new DrinkListAdapter();
         drinkRecyclerView.setAdapter(drinkListAdapter);
+
+        drinkViewModel = new ViewModelProvider(this).get(DrinkViewModel.class);
+        drinkViewModel.getDrinks().observe(this, new Observer<List<Drink>>() {
+            @Override
+            public void onChanged(List<Drink> drinks) {
+                drinkListAdapter.submitList(drinks);
+            }
+        });
 
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
